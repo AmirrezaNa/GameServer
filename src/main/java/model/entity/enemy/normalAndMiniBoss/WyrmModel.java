@@ -1,13 +1,13 @@
 package model.entity.enemy.normalAndMiniBoss;
 
+import model.entity.enemy.EnemyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
-public class WyrmModel implements Serializable {
-    private static final long serialVersionUID = 1L;
-    public double x;
-    public double y;
+public class WyrmModel extends EnemyModel {
+
     public double dx;
     public double dy;
     public double ax;
@@ -21,8 +21,7 @@ public class WyrmModel implements Serializable {
 
 
     public WyrmModel(double x, double y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.dx = 0;
         this.dy = 0;
         this.ax = 0;

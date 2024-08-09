@@ -1,13 +1,14 @@
 package model.entity.enemy.normalAndMiniBoss;
 
+import model.entity.enemy.EnemyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
-public class OmenoctModel implements Serializable {
-    private static final long serialVersionUID = 1L;
-    public double x;
-    public double y;
+public class OmenoctModel extends EnemyModel {
+
+
     public double dx;
     public double dy;
     public double ax;
@@ -28,6 +29,7 @@ public class OmenoctModel implements Serializable {
     // the position of omenoct is based on the top angle
 
     public OmenoctModel(double x, double y) {
+        super(x, y);
         xAngles = new double[]{x, (x + (omenoctSize * Math.cos(Math.PI / 8)))
                 , (x + (distanceToCenter * Math.cos(Math.PI / 8))), (x + (omenoctSize * Math.cos(Math.PI / 8)))
                 , x, (x - (omenoctSize * Math.cos(Math.PI / 8)))
@@ -36,8 +38,7 @@ public class OmenoctModel implements Serializable {
                 , (y + distanceToCenter - (distanceToCenter * Math.sin(Math.PI / 8))), (y + distanceToCenter + (omenoctSize * Math.sin(Math.PI / 8)))
                 , y + (2 * distanceToCenter), (y + distanceToCenter + (omenoctSize * Math.sin(Math.PI / 8)))
                 , (y + distanceToCenter - (distanceToCenter * Math.sin(Math.PI / 8))), (y + (omenoctSize * Math.sin(Math.PI / 8)))};
-        this.x = x;
-        this.y = y;
+
         this.dx = 0;
         this.dy = 0;
         this.ax = 0;

@@ -164,18 +164,21 @@ public class GameController implements Serializable {
 
 
     public BulletModel newBullet(Point point) {
-        if ((!this.gameOver || !this.finalBossOver) && !this.pause) {
-            this.bullet = new BulletModel(this.ball.x, this.ball.y);
-            this.bullet.bulletFrame = FrameOfObject.getFrameOfBall(this);
-            this.bullet.dx = ((point.x - (this.ball.x)) / Math.sqrt(Math.pow((point.x - (this.ball.x)), 2) + Math.pow((point.y - (this.ball.y)), 2))) * BulletModel.bulletSpeed;
-            if (this.bullet.y < point.y) {
-                this.bullet.dy = Math.sqrt(Math.pow(BulletModel.bulletSpeed, 2) - Math.pow(this.bullet.dx, 2));
-            } else {
-                this.bullet.dy = -(Math.sqrt(Math.pow(BulletModel.bulletSpeed, 2) - Math.pow(this.bullet.dx, 2)));
+        if (this.ball != null) {
+            if ((!this.gameOver || !this.finalBossOver) && !this.pause) {
+                this.bullet = new BulletModel(this.ball.x, this.ball.y);
+                this.bullet.bulletFrame = FrameOfObject.getFrameOfBall(this);
+                this.bullet.dx = ((point.x - (this.ball.x)) / Math.sqrt(Math.pow((point.x - (this.ball.x)), 2) + Math.pow((point.y - (this.ball.y)), 2))) * BulletModel.bulletSpeed;
+                if (this.bullet.y < point.y) {
+                    this.bullet.dy = Math.sqrt(Math.pow(BulletModel.bulletSpeed, 2) - Math.pow(this.bullet.dx, 2));
+                } else {
+                    this.bullet.dy = -(Math.sqrt(Math.pow(BulletModel.bulletSpeed, 2) - Math.pow(this.bullet.dx, 2)));
+                }
+                this.bullets.add(0, this.bullet);
+                return this.bullet;
             }
-            this.bullets.add(0, this.bullet);
-            return this.bullet;
         }
+
         return null;
     }
 

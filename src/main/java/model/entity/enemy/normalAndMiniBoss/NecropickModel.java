@@ -1,14 +1,13 @@
 package model.entity.enemy.normalAndMiniBoss;
 
+import model.entity.enemy.EnemyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
-public class NecropickModel implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class NecropickModel extends EnemyModel {
 
-    public double x;
-    public double y;
     public double dx;
     public double dy;
     public double ax;
@@ -27,10 +26,9 @@ public class NecropickModel implements Serializable {
     public boolean necropickAlert;
 
     public NecropickModel(double x, double y) {
+        super(x, y);
         xAngles = new double[]{x, (x + necropickSize), (x + necropickSize), x};
         yAngles = new double[]{y, y, (y + necropickSize), (y + necropickSize)};
-        this.x = x;
-        this.y = y;
         this.dx = 0;
         this.dy = 0;
         this.ax = 0;
