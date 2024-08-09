@@ -1,14 +1,13 @@
 package model.entity.enemy.boss;
 
+import model.entity.enemy.EnemyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
-public class SmileyModel implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class SmileyModel extends EnemyModel {
 
-    public double x;
-    public double y;
     public double dx;
     public double dy;
     public int enemyHealth;
@@ -28,8 +27,7 @@ public class SmileyModel implements Serializable {
 
 
     public SmileyModel(double x, double y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.dx = 0;
         this.dy = 1;
         this.enemyHealth = 300;

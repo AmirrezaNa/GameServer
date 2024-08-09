@@ -1,11 +1,11 @@
 package model.entity.enemy.normalAndMiniBoss;
 
+import model.entity.enemy.EnemyModel;
+
 import java.io.Serializable;
 
-public class BlackOrbModel implements Serializable {
-    private static final long serialVersionUID = 1L;
-    public double x;
-    public double y;
+public class BlackOrbModel extends EnemyModel {
+
     public double dx;
     public double dy;
     public double ax;
@@ -24,8 +24,7 @@ public class BlackOrbModel implements Serializable {
 
 
     public BlackOrbModel(double x, double y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.dx = 0;
         this.dy = 0;
         this.ax = 0;

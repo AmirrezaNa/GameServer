@@ -1,13 +1,13 @@
 package model.entity.enemy.boss;
 
+import model.entity.enemy.EnemyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
-public class PunchModel implements Serializable {
-    private static final long serialVersionUID = 1L;
-    public double x;
-    public double y;
+public class PunchModel extends EnemyModel {
+
     public double dx;
     public double dy;
     public static double enemySpeed = 0.3;
@@ -18,8 +18,7 @@ public class PunchModel implements Serializable {
 
 
     public PunchModel(double x, double y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.dx = 0;
         this.dy = 1;
         enemyAcceleration = 3;

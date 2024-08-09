@@ -1,11 +1,11 @@
 package model.entity.enemy.normalAndMiniBoss;
 
+import model.entity.enemy.EnemyModel;
+
 import java.io.Serializable;
 
-public class EnemyModel1 implements Serializable {
-    private static final long serialVersionUID = 1L;
-    public double x;
-    public double y;
+public class EnemyModel1 extends EnemyModel {
+
     public double dx;
     public double dy;
     public double ax;
@@ -21,10 +21,9 @@ public class EnemyModel1 implements Serializable {
     public boolean dash;
 
     public EnemyModel1(double x, double y) {
+        super(x, y);
         xAngles = new double[]{x, (x + enemy1Size), (x + enemy1Size), x};
         yAngles = new double[]{y, y, (y + enemy1Size), (y + enemy1Size)};
-        this.x = x;
-        this.y = y;
         this.dx = 0;
         this.dy = 0;
         this.ax = 0;

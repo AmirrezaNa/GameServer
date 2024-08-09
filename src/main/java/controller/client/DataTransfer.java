@@ -19,6 +19,7 @@ public class DataTransfer {
         while (!client.gameController.gameOver) {
             try {
                 client.inputs = (Inputs) in.readObject();
+                System.out.println("hi");
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }

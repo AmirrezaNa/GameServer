@@ -24,8 +24,8 @@ public class ClientModel {
         this.gameFrame = null;
         this.gameFrame2 = null;
         this.finalBossFrame = null;
-        MouseInputListener.getMousePoint(this.gameController, this.inputs);
-        KeyInputListener.getKeyPoint(this);
+//        MouseInputListener.getMousePoint(this.gameController, this.inputs);
+//        KeyInputListener.getKeyPoint(this);
     }
 
 }

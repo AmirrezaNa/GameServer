@@ -1,13 +1,13 @@
 package model.entity.enemy.normalAndMiniBoss;
 
+import model.entity.enemy.EnemyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
-public class ArchmireModel implements Serializable {
-    private static final long serialVersionUID = 1L;
-    public double x;
-    public double y;
+public class ArchmireModel extends EnemyModel {
+
     public double dx;
     public double dy;
     public double ax;
@@ -20,8 +20,7 @@ public class ArchmireModel implements Serializable {
     public static Image image = new ImageIcon(imageIcon).getImage();
 
     public ArchmireModel(double x, double y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.dx = 0;
         this.dy = 0;
         this.ax = 0;

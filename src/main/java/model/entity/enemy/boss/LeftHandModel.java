@@ -1,13 +1,13 @@
 package model.entity.enemy.boss;
 
+import model.entity.enemy.EnemyModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
-public class LeftHandModel implements Serializable {
-    private static final long serialVersionUID = 1L;
-    public double x;
-    public double y;
+public class LeftHandModel extends EnemyModel {
+
     public double dx;
     public double dy;
     public int enemyHealth;
@@ -20,8 +20,7 @@ public class LeftHandModel implements Serializable {
 
 
     public LeftHandModel(double x, double y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.dx = 1;
         this.dy = 1;
         enemyAcceleration = 3;
