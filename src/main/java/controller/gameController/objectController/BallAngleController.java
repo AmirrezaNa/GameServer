@@ -12,8 +12,8 @@ public class BallAngleController {
 
             double x1 = gameController.ball.x;
             double y1 = gameController.ball.y;
-            double x2 = MouseInputListener.x;
-            double y2 = MouseInputListener.y;
+            double x2 = 0;
+            double y2 = 0;
             double deltaX = x2 - x1;
             double deltaY = y2 - y1;
 

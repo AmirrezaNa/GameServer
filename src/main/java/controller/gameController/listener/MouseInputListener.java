@@ -16,34 +16,30 @@ public class MouseInputListener {
 
 
     public static void getMousePoint(GameController gameController, Inputs inputs) {
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                if (inputs.mousePoint != null) {
-                    if (gameController.empowerBullet) {
-                        Timer timer = new Timer();
-                        final int[] counter = {0};
-                        TimerTask task = new TimerTask() {
-                            @Override
-                            public void run() {
-                                gameController.newBullet(inputs.mousePoint);
-                                counter[0]++;
-                                if (counter[0] == 3) {
-                                    timer.cancel();
-                                }
-                            }
-                        };
-                        timer.scheduleAtFixedRate(task, 0, 5);
-
-                    } else {
-                        gameController.newBullet(inputs.mousePoint);
+        System.out.println(inputs.mousePoint.x + " " + inputs.mousePoint.y);
+        if ((inputs.mousePoint != null) && (x != 0) && (y != 0)) {
+            if (gameController.empowerBullet) {
+                Timer timer = new Timer();
+                final int[] counter = {0};
+                TimerTask task = new TimerTask() {
+                    @Override
+                    public void run() {
+                        Point point  = new Point((int) x, (int) y);
+                        gameController.newBullet(point);
+                        counter[0]++;
+                        if (counter[0] == 3) {
+                            timer.cancel();
+                        }
                     }
-                }
+                };
+                timer.scheduleAtFixedRate(task, 0, 5);
 
+            } else {
+                gameController.newBullet(inputs.mousePoint);
             }
-        };
-        timer.scheduleAtFixedRate(task, 0, 5);
+            x = 0;
+            y = 0;
+        }
 
 
     }

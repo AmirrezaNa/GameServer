@@ -15,12 +15,13 @@ import java.net.Socket;
 public class DataTransfer {
 
     public static void sendGameState(Socket socket, ClientModel client) throws IOException {
+
+        KeyInputListener.getKeyPoint(client);
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
         while (!client.gameController.gameOver) {
             try {
                 client.inputs = (Inputs) in.readObject();
-                System.out.println("hi");
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -28,6 +29,10 @@ public class DataTransfer {
             objectOutputStream.reset();
             objectOutputStream.flush();
 
+
+            MouseInputListener.x = client.inputs.mousePoint.x;
+            MouseInputListener.y = client.inputs.mousePoint.y;
+            MouseInputListener.getMousePoint(client.gameController, client.inputs);
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {

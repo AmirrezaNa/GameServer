@@ -45,8 +45,8 @@ public class GameFrame{
 //        thread = new Thread(gamePanel);
 //        thread.start();
 
-        countToTenSeconds(client.gameFrame, client);
-        check(client.gameFrame, client);
+        countToTenSeconds(this, client);
+        check(this, client);
 
     }
 
@@ -101,11 +101,16 @@ public class GameFrame{
                                 // reduce width gradually
                                 gameFrame.x += 1;
                                 gameFrame.width -= 2;
+                                client.gameController.xFrame1 = gameFrame.x;
+                                client.gameController.widthFrame1 = gameFrame.width;
+
                             }
                             if (gameFrame.height > 300 && !client.gameController.pause && !client.gameController.ball.ballSlumber) {
                                 // reduce height gradually
                                 gameFrame.y += 1;
                                 gameFrame.height -= 2;
+                                client.gameController.yFrame1 = gameFrame.y;
+                                client.gameController.heightFrame1 = gameFrame.height;
 
                             }
                         }
@@ -116,12 +121,16 @@ public class GameFrame{
                             // reduce width gradually
                             gameFrame.x += 1;
                             gameFrame.width -= 2;
+                            client.gameController.xFrame1 = gameFrame.x;
+                            client.gameController.widthFrame1 = gameFrame.width;
 
                         }
                         if (gameFrame.height > 300 && !client.gameController.pause && !client.gameController.ball.ballSlumber) {
                             // reduce height gradually
                             gameFrame.y += 1;
                             gameFrame.height -= 2;
+                            client.gameController.yFrame1 = gameFrame.y;
+                            client.gameController.heightFrame1 = gameFrame.height;
 
                         }
                     }
@@ -256,6 +265,7 @@ public class GameFrame{
                         BallModel.ballRadius++;
                         gameFrame.y += 1;
                         gameFrame.height -= 2;
+
                     }
                     if (width <= 0 && height <= 0) {
                         isAnimationComplete = true;
