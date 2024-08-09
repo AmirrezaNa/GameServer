@@ -79,6 +79,10 @@ public class GameController implements Serializable {
     public int yFrame1;
     public int widthFrame1;
     public int heightFrame1;
+    public int xEpsilonFrame;
+    public int yEpsilonFrame;
+    public int widthEpsilonFrame;
+    public int heightEpsilonFrame;
 
     public GameController() {
         gameTime(this);
@@ -142,6 +146,10 @@ public class GameController implements Serializable {
         this.yFrame1 = 50;
         this.widthFrame1 = 600;
         this.heightFrame1 = 600;
+        this.xEpsilonFrame = 450;
+        this.yEpsilonFrame = 300;
+        this.widthEpsilonFrame = 400;
+        this.heightEpsilonFrame = 400;
 
     }
 

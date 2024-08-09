@@ -48,12 +48,16 @@ public class EpsilonFrame implements Serializable {
                                 width -= 6;
                                 epsilonFrame.x = x;
                                 epsilonFrame.width = width;
+                                client.gameController.xEpsilonFrame = epsilonFrame.x;
+                                client.gameController.widthEpsilonFrame = epsilonFrame.width;
                             }
                             if (height < 400 && !client.gameController.smiley.squeezeAttack) {
                                 y--;
                                 height += 2;
                                 epsilonFrame.y = y;
                                 epsilonFrame.height = height;
+                                client.gameController.yEpsilonFrame = epsilonFrame.y;
+                                client.gameController.heightEpsilonFrame = epsilonFrame.height;
                             }
                         }
                     }
@@ -69,12 +73,16 @@ public class EpsilonFrame implements Serializable {
                             width -= 6;
                             epsilonFrame.x = x;
                             epsilonFrame.width = width;
+                            client.gameController.xEpsilonFrame = epsilonFrame.x;
+                            client.gameController.widthEpsilonFrame = epsilonFrame.width;
                         }
                         if (height < 400 && !client.gameController.smiley.squeezeAttack) {
                             y--;
                             height += 2;
                             epsilonFrame.y = y;
                             epsilonFrame.height = height;
+                            client.gameController.yEpsilonFrame = epsilonFrame.y;
+                            client.gameController.heightEpsilonFrame = epsilonFrame.height;
                         }
                     }
                 }
