@@ -48,7 +48,7 @@ public class ClientThread extends Thread {
 //            KeyInputListener.getKeyPoint(client);
             DataTransfer.sendGameState(socket, client);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("something went wrong for connection or game is over!");
         }
     }
 
