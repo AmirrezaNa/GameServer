@@ -7,9 +7,9 @@ import controller.gameController.Impact;
 import controller.gameController.collisions.phase2.ObjectCollisions2;
 import model.entity.BallModel;
 import model.entity.BulletModel;
+import model.entity.enemy.AllEnemies;
 import model.entity.enemy.boss.LeftHandModel;
 import model.entity.enemy.boss.RightHandModel;
-import model.entity.enemy.normalAndMiniBoss.BlackOrbModel;
 
 public class ObjectCollisionBossFight {
 
@@ -228,7 +228,7 @@ public class ObjectCollisionBossFight {
         double xMin2 = gameController.rightHand.x;
         double xMax2 = gameController.rightHand.x + RightHandModel.rightHandSize;
         double yMin2 = gameController.rightHand.y - RightHandModel.rightHandSize;
-        double yMax2 = gameController.rightHand.y + BlackOrbModel.blackOrbSize;
+        double yMax2 = gameController.rightHand.y + AllEnemies.BlackOrbModel.blackOrbSize;
 
         if (((xMin1 >= xMin2 && xMin1 <= xMax2) && (yMin1 >= yMin2 && yMin1 <= yMax2))
                 || ((xMin1 <= xMin2 && xMax1 >= xMin2) && (yMin1 >= yMin2 && yMin1 <= yMax2))

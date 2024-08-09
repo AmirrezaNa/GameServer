@@ -2,6 +2,8 @@ package controller.client;
 
 import controller.gameController.GameController;
 import controller.gameController.listener.Inputs;
+import controller.gameController.listener.KeyInputListener;
+import controller.gameController.listener.MouseInputListener;
 import model.ClientModel;
 
 import java.io.IOException;
@@ -15,7 +17,6 @@ public class DataTransfer {
     public static void sendGameState(Socket socket, ClientModel client) throws IOException {
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-
         while (!client.gameController.gameOver) {
             try {
                 client.inputs = (Inputs) in.readObject();

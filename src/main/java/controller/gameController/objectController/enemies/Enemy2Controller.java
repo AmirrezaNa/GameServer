@@ -2,7 +2,7 @@ package controller.gameController.objectController.enemies;
 
 import controller.gameController.GameController;
 import controller.gameController.Rotation;
-import model.entity.enemy.normalAndMiniBoss.EnemyModel2;
+import model.entity.enemy.AllEnemies;
 
 public class Enemy2Controller {
 
@@ -11,11 +11,11 @@ public class Enemy2Controller {
         if (!gameController.enemies2.isEmpty()) {
             for (int i = 0; i < gameController.enemies2.size(); i++) {
                 if (gameController.enemies2.get(i).enemyHealth > 0) {
-                    gameController.enemies2.get(i).dx = -((gameController.enemies2.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.enemies2.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.enemies2.get(i).y - gameController.ball.y), 2))) * EnemyModel2.enemySpeed;
+                    gameController.enemies2.get(i).dx = -((gameController.enemies2.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.enemies2.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.enemies2.get(i).y - gameController.ball.y), 2))) * AllEnemies.EnemyModel2.enemySpeed;
                     if (gameController.ball.y < gameController.enemies2.get(i).y) {
-                        gameController.enemies2.get(i).dy = -Math.sqrt(Math.pow(EnemyModel2.enemySpeed, 2) - Math.pow(gameController.enemies2.get(i).dx, 2));
+                        gameController.enemies2.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.EnemyModel2.enemySpeed, 2) - Math.pow(gameController.enemies2.get(i).dx, 2));
                     } else {
-                        gameController.enemies2.get(i).dy = Math.sqrt(Math.pow(EnemyModel2.enemySpeed, 2) - Math.pow(gameController.enemies2.get(i).dx, 2));
+                        gameController.enemies2.get(i).dy = Math.sqrt(Math.pow(AllEnemies.EnemyModel2.enemySpeed, 2) - Math.pow(gameController.enemies2.get(i).dx, 2));
                     }
                     if (gameController.ball.ballDismay) {
                         gameController.enemies2.get(i).dx = -gameController.enemies2.get(i).dx;

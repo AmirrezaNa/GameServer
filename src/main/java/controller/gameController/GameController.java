@@ -7,11 +7,11 @@ import controller.gameLoop.phase2.BossFight.EpsilonFrame;
 import controller.gameLoop.phase2.normalAndMiniBossEnemies.CreateFrames;
 import model.ClientModel;
 import model.entity.*;
+import model.entity.enemy.AllEnemies;
 import model.entity.enemy.boss.LeftHandModel;
 import model.entity.enemy.boss.PunchModel;
 import model.entity.enemy.boss.RightHandModel;
 import model.entity.enemy.boss.SmileyModel;
-import model.entity.enemy.normalAndMiniBoss.*;
 import view.SettingsPanel;
 
 import java.awt.*;
@@ -31,28 +31,28 @@ public class GameController implements Serializable {
     public BallAngle ballAngle;
 
     BulletModel bullet;
-    EnemyModel1 enemy1;
-    EnemyModel2 enemy2;
-    ArchmireModel archmire;
-    BarricadosModel1 barricados1;
-    BarricadosModel2 barricados2;
-    BlackOrbModel blackOrb;
-    OmenoctModel omenoct;
-    WyrmModel wyrm;
-    NecropickModel necropick;
+    AllEnemies.EnemyModel1 enemy1;
+    AllEnemies.EnemyModel2 enemy2;
+    AllEnemies.ArchmireModel archmire;
+    AllEnemies.BarricadosModel1 barricados1;
+    AllEnemies.BarricadosModel2 barricados2;
+    AllEnemies.BlackOrbModel blackOrb;
+    AllEnemies.OmenoctModel omenoct;
+    AllEnemies.WyrmModel wyrm;
+    AllEnemies.NecropickModel necropick;
     Collectible collectible;
     public ArrayList<BulletModel> bullets;
     public ArrayList<BulletModel> enemyBullets;
-    public ArrayList<EnemyModel1> enemies1;
-    public ArrayList<EnemyModel2> enemies2;
-    public ArrayList<ArchmireModel> archmireEnemies;
-    public ArrayList<ArchmirePoints> archmirePoints;
-    public ArrayList<BarricadosModel1> barricadosEnemies1;
-    public ArrayList<BlackOrbModel> blackOrbEnemies;
-    public ArrayList<BarricadosModel2> barricadosEnemies2;
-    public ArrayList<OmenoctModel> omenoctEnemies;
-    public ArrayList<WyrmModel> wyrmEnemies;
-    public ArrayList<NecropickModel> necropickEnemies;
+    public ArrayList<AllEnemies.EnemyModel1> enemies1;
+    public ArrayList<AllEnemies.EnemyModel2> enemies2;
+    public ArrayList<AllEnemies.ArchmireModel> archmireEnemies;
+    public ArrayList<AllEnemies.ArchmirePoints> archmirePoints;
+    public ArrayList<AllEnemies.BarricadosModel1> barricadosEnemies1;
+    public ArrayList<AllEnemies.BlackOrbModel> blackOrbEnemies;
+    public ArrayList<AllEnemies.BarricadosModel2> barricadosEnemies2;
+    public ArrayList<AllEnemies.OmenoctModel> omenoctEnemies;
+    public ArrayList<AllEnemies.WyrmModel> wyrmEnemies;
+    public ArrayList<AllEnemies.NecropickModel> necropickEnemies;
     public ArrayList<Collectible> collectibles;
     public int wave;
     public int Banish;
@@ -226,10 +226,10 @@ public class GameController implements Serializable {
         if (!this.phase1over && !this.pause && !this.ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             if (this.enemies1.size() % 2 == 0) {
-                this.enemy1 = new EnemyModel1(50, (double) client.gameFrame.height / 2);
+                this.enemy1 = new AllEnemies.EnemyModel1(50, (double) client.gameFrame.height / 2);
                 this.enemies1.add(0, this.enemy1);
             } else {
-                this.enemy1 = new EnemyModel1((double) client.gameFrame.width / 2, 50);
+                this.enemy1 = new AllEnemies.EnemyModel1((double) client.gameFrame.width / 2, 50);
                 this.enemy1.dash = true;
                 this.enemies1.add(0, this.enemy1);
             }
@@ -240,10 +240,10 @@ public class GameController implements Serializable {
         if (!this.phase1over && !this.pause && !this.ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             if (this.enemies2.size() % 2 == 0) {
-                this.enemy2 = new EnemyModel2((double) client.gameFrame.width - 60, (double) client.gameFrame.height / 2);
+                this.enemy2 = new AllEnemies.EnemyModel2((double) client.gameFrame.width - 60, (double) client.gameFrame.height / 2);
                 this.enemies2.add(0, this.enemy2);
             } else {
-                this.enemy2 = new EnemyModel2(((double) client.gameFrame.width / 2), client.gameFrame.height - 60);
+                this.enemy2 = new AllEnemies.EnemyModel2(((double) client.gameFrame.width / 2), client.gameFrame.height - 60);
                 this.enemies2.add(0, this.enemy2);
             }
 
@@ -254,7 +254,7 @@ public class GameController implements Serializable {
     public void newArchmire() {
         if (!this.pause && !this.ball.ballSlumber)
             for (int i = 1; i < 3; i++) {
-                this.archmire = new ArchmireModel(createdFrames[i].x + (double) (createdFrames[i].width / 2),
+                this.archmire = new AllEnemies.ArchmireModel(createdFrames[i].x + (double) (createdFrames[i].width / 2),
                         createdFrames[i].y + (double) (createdFrames[i].height / 2));
                 ArchmireController.setTrace(this.archmire, this);
                 this.archmireEnemies.add(this.archmire);
@@ -267,8 +267,8 @@ public class GameController implements Serializable {
         if (!this.pause && !this.ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             int x = createdFrames[2].x + (createdFrames[2].width/2);
-            int y = createdFrames[2].y + createdFrames[2].height - (BarricadosModel1.barricadosSize/2);
-            this.barricados1 = new BarricadosModel1(x, y);
+            int y = createdFrames[2].y + createdFrames[2].height - (AllEnemies.BarricadosModel1.barricadosSize/2);
+            this.barricados1 = new AllEnemies.BarricadosModel1(x, y);
             this.barricadosEnemies1.add(this.barricados1);
             BarricadosController1.setTimerForBarricados1(this.barricados1, this);
         }
@@ -278,8 +278,8 @@ public class GameController implements Serializable {
         if (!this.pause && !this.ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             int x = createdFrames[1].x + (createdFrames[1].width/2);
-            int y = createdFrames[1].y + createdFrames[1].height - (BarricadosModel2.barricadosSize/2);
-            this.barricados2 = new BarricadosModel2(x, y);
+            int y = createdFrames[1].y + createdFrames[1].height - (AllEnemies.BarricadosModel2.barricadosSize/2);
+            this.barricados2 = new AllEnemies.BarricadosModel2(x, y);
             this.barricadosEnemies2.add(this.barricados2);
             BarricadosController2.setTimerForBarricados2(this.barricados2, this);
         }
@@ -291,7 +291,7 @@ public class GameController implements Serializable {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             int x = createdFrames[3].x + (createdFrames[3].width/2);
             int y = createdFrames[3].y + (createdFrames[3].height/2);
-            this.blackOrb = new BlackOrbModel(x, y);
+            this.blackOrb = new AllEnemies.BlackOrbModel(x, y);
             this.blackOrbEnemies.add(this.blackOrb);
             BlackOrbController.setTimerForCreatingBlackOrb(this.blackOrb, this);
         }
@@ -301,9 +301,9 @@ public class GameController implements Serializable {
     public void newOmenoct() {
         if (!this.pause && !this.ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
-            int x = createdFrames[FrameOfObject.getFrameOfBall(this)].x + createdFrames[FrameOfObject.getFrameOfBall(this)].width - (ArchmireModel.archmireSize / 2);
+            int x = createdFrames[FrameOfObject.getFrameOfBall(this)].x + createdFrames[FrameOfObject.getFrameOfBall(this)].width - (AllEnemies.ArchmireModel.archmireSize / 2);
             int y = createdFrames[FrameOfObject.getFrameOfBall(this)].y + createdFrames[FrameOfObject.getFrameOfBall(this)].height/2;
-            this.omenoct = new OmenoctModel(x, y);
+            this.omenoct = new AllEnemies.OmenoctModel(x, y);
             this.omenoctEnemies.add(this.omenoct);
             if (this.omenoctEnemies.size() == 1) {
                 OmenoctController.shotBullet(this);
@@ -316,8 +316,8 @@ public class GameController implements Serializable {
         if (!this.pause && !this.ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
             int x = createdFrames[3].x + (createdFrames[3].width/2);
-            int y = createdFrames[3].y + createdFrames[3].height - (WyrmModel.wyrmSize/2);
-            this.wyrm = new WyrmModel(x, y);
+            int y = createdFrames[3].y + createdFrames[3].height - (AllEnemies.WyrmModel.wyrmSize/2);
+            this.wyrm = new AllEnemies.WyrmModel(x, y);
             this.wyrmEnemies.add(this.wyrm);
             if (wyrmEnemies.size() == 1) {
                 WyrmController.shotBullet(this);
@@ -328,7 +328,7 @@ public class GameController implements Serializable {
     public void newNecropick() {
         if (!this.pause && !this.ball.ballSlumber) {
             SoundEffects.playSound(Constants.ENEMY_ENTER_SOUND_PATH);
-            this.necropick = new NecropickModel((int) (ball.x - 200), (int) ball.y);
+            this.necropick = new AllEnemies.NecropickModel((int) (ball.x - 200), (int) ball.y);
             this.necropickEnemies.add(this.necropick);
         }
     }

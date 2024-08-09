@@ -3,8 +3,7 @@ package controller.gameController.objectController.enemies;
 import controller.gameController.FrameOfObject;
 import controller.gameController.GameController;
 import controller.gameController.Rotation;
-import model.entity.enemy.normalAndMiniBoss.EnemyModel1;
-import model.entity.enemy.normalAndMiniBoss.OmenoctModel;
+import model.entity.enemy.AllEnemies;
 
 import java.awt.*;
 import java.util.Timer;
@@ -18,14 +17,14 @@ public class OmenoctController {
             for (int i = 0; i < gameController.omenoctEnemies.size(); i++) {
                 if (gameController.omenoctEnemies.get(i).enemyHealth > 0) {
                     if (FrameOfObject.getFrameOfBall(gameController) != -1) {
-                        int x = gameController.createdFrames[FrameOfObject.getFrameOfBall(gameController)].x + gameController.createdFrames[FrameOfObject.getFrameOfBall(gameController)].width - (OmenoctModel.omenoctSize / 2);
+                        int x = gameController.createdFrames[FrameOfObject.getFrameOfBall(gameController)].x + gameController.createdFrames[FrameOfObject.getFrameOfBall(gameController)].width - (AllEnemies.OmenoctModel.omenoctSize / 2);
 //                        int y = createdFrames[FrameOfObject.getFrameOfBall()].y + createdFrames[FrameOfObject.getFrameOfBall()].height / 2;
                         int y = (int) gameController.ball.y;
-                        gameController.omenoctEnemies.get(i).dx = -((gameController.omenoctEnemies.get(i).x - x) / Math.sqrt(Math.pow((gameController.omenoctEnemies.get(i).x - x), 2) + Math.pow((gameController.omenoctEnemies.get(i).y - y), 2))) * OmenoctModel.enemySpeed;
+                        gameController.omenoctEnemies.get(i).dx = -((gameController.omenoctEnemies.get(i).x - x) / Math.sqrt(Math.pow((gameController.omenoctEnemies.get(i).x - x), 2) + Math.pow((gameController.omenoctEnemies.get(i).y - y), 2))) * AllEnemies.OmenoctModel.enemySpeed;
                         if (y < gameController.omenoctEnemies.get(i).y) {
-                            gameController.omenoctEnemies.get(i).dy = -Math.sqrt(Math.pow(OmenoctModel.enemySpeed, 2) - Math.pow(gameController.omenoctEnemies.get(i).dx, 2));
+                            gameController.omenoctEnemies.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.OmenoctModel.enemySpeed, 2) - Math.pow(gameController.omenoctEnemies.get(i).dx, 2));
                         } else {
-                            gameController.omenoctEnemies.get(i).dy = Math.sqrt(Math.pow(OmenoctModel.enemySpeed, 2) - Math.pow(gameController.omenoctEnemies.get(i).dx, 2));
+                            gameController.omenoctEnemies.get(i).dy = Math.sqrt(Math.pow(AllEnemies.OmenoctModel.enemySpeed, 2) - Math.pow(gameController.omenoctEnemies.get(i).dx, 2));
                         }
                     }
                 }
@@ -37,11 +36,11 @@ public class OmenoctController {
         if (!gameController.omenoctEnemies.isEmpty()) {
             for (int i = 0; i < gameController.omenoctEnemies.size(); i++) {
                 if (gameController.omenoctEnemies.get(i).enemyHealth > 0) {
-                    gameController.omenoctEnemies.get(i).dx = -((gameController.omenoctEnemies.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.omenoctEnemies.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.omenoctEnemies.get(i).y - gameController.ball.y), 2))) * EnemyModel1.enemySpeed;
+                    gameController.omenoctEnemies.get(i).dx = -((gameController.omenoctEnemies.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.omenoctEnemies.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.omenoctEnemies.get(i).y - gameController.ball.y), 2))) * AllEnemies.EnemyModel1.enemySpeed;
                     if (gameController.ball.y < gameController.omenoctEnemies.get(i).y) {
-                        gameController.omenoctEnemies.get(i).dy = -Math.sqrt(Math.pow(EnemyModel1.enemySpeed, 2) - Math.pow(gameController.omenoctEnemies.get(i).dx, 2));
+                        gameController.omenoctEnemies.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.EnemyModel1.enemySpeed, 2) - Math.pow(gameController.omenoctEnemies.get(i).dx, 2));
                     } else {
-                        gameController.omenoctEnemies.get(i).dy = Math.sqrt(Math.pow(EnemyModel1.enemySpeed, 2) - Math.pow(gameController.omenoctEnemies.get(i).dx, 2));
+                        gameController.omenoctEnemies.get(i).dy = Math.sqrt(Math.pow(AllEnemies.EnemyModel1.enemySpeed, 2) - Math.pow(gameController.omenoctEnemies.get(i).dx, 2));
                     }
                     if (gameController.ball.ballDismay) {
                         gameController.omenoctEnemies.get(i).dx = -gameController.omenoctEnemies.get(i).dx;
@@ -95,8 +94,8 @@ public class OmenoctController {
                     for (int i = 0; i < gameController.omenoctEnemies.size(); i++) {
                         if (gameController.omenoctEnemies.get(i).enemyHealth > 0 && !gameController.pause) {
                             Point point = new Point();
-                            point.setLocation(gameController.omenoctEnemies.get(i).x + OmenoctModel.distanceToCenter,
-                                    gameController.omenoctEnemies.get(i).y + OmenoctModel.distanceToCenter);
+                            point.setLocation(gameController.omenoctEnemies.get(i).x + AllEnemies.OmenoctModel.distanceToCenter,
+                                    gameController.omenoctEnemies.get(i).y + AllEnemies.OmenoctModel.distanceToCenter);
                             gameController.newOmenoctBullet(point);
                         }
                     }

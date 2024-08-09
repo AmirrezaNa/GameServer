@@ -1,7 +1,7 @@
 package controller.gameController.objectController.enemies;
 
 import controller.gameController.GameController;
-import model.entity.enemy.normalAndMiniBoss.BlackOrbModel;
+import model.entity.enemy.AllEnemies;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,11 +13,11 @@ public class BlackOrbController {
         if (!gameController.blackOrbEnemies.isEmpty()) {
             for (int i = 0; i < gameController.blackOrbEnemies.size(); i++) {
                 if (gameController.blackOrbEnemies.get(i).enemyHealth > 0) {
-                    gameController.blackOrbEnemies.get(i).dx = -((gameController.blackOrbEnemies.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.blackOrbEnemies.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.blackOrbEnemies.get(i).y - gameController.ball.y), 2))) * BlackOrbModel.enemySpeed;
+                    gameController.blackOrbEnemies.get(i).dx = -((gameController.blackOrbEnemies.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.blackOrbEnemies.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.blackOrbEnemies.get(i).y - gameController.ball.y), 2))) * AllEnemies.BlackOrbModel.enemySpeed;
                     if (gameController.ball.y < gameController.blackOrbEnemies.get(i).y) {
-                        gameController.blackOrbEnemies.get(i).dy = -Math.sqrt(Math.pow(BlackOrbModel.enemySpeed, 2) - Math.pow(gameController.blackOrbEnemies.get(i).dx, 2));
+                        gameController.blackOrbEnemies.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.BlackOrbModel.enemySpeed, 2) - Math.pow(gameController.blackOrbEnemies.get(i).dx, 2));
                     } else {
-                        gameController.blackOrbEnemies.get(i).dy = Math.sqrt(Math.pow(BlackOrbModel.enemySpeed, 2) - Math.pow(gameController.blackOrbEnemies.get(i).dx, 2));
+                        gameController.blackOrbEnemies.get(i).dy = Math.sqrt(Math.pow(AllEnemies.BlackOrbModel.enemySpeed, 2) - Math.pow(gameController.blackOrbEnemies.get(i).dx, 2));
                     }
                     if (gameController.ball.ballDismay) {
                         gameController.blackOrbEnemies.get(i).dx = -gameController.blackOrbEnemies.get(i).dx;
@@ -60,7 +60,7 @@ public class BlackOrbController {
     }
 
 
-    public static void setTimerForCreatingBlackOrb(BlackOrbModel blackOrb, GameController gameController) {
+    public static void setTimerForCreatingBlackOrb(AllEnemies.BlackOrbModel blackOrb, GameController gameController) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override

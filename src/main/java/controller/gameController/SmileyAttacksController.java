@@ -1,8 +1,8 @@
 package controller.gameController;
 
+import model.entity.enemy.AllEnemies;
 import model.entity.enemy.boss.LeftHandModel;
 import model.entity.enemy.boss.RightHandModel;
-import model.entity.enemy.normalAndMiniBoss.ArchmirePoints;
 
 import java.awt.*;
 import java.util.Timer;
@@ -132,7 +132,7 @@ public class SmileyAttacksController {
                             Point point = new Point();
                             point.setLocation((gameController.epsilonFrame.epsilonFrame.x + 30 + (i * 100)),
                                     gameController.epsilonFrame.epsilonFrame.y + 30 + (j * 150));
-                            ArchmirePoints vomitPoint = new ArchmirePoints(point.x, point.y);
+                            AllEnemies.ArchmirePoints vomitPoint = new AllEnemies.ArchmirePoints(point.x, point.y);
                             gameController.archmirePoints.add(0, vomitPoint);
                             setTimerForPoint(vomitPoint, gameController);
                         }

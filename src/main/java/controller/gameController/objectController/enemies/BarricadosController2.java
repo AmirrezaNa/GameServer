@@ -1,7 +1,7 @@
 package controller.gameController.objectController.enemies;
 
 import controller.gameController.GameController;
-import model.entity.enemy.normalAndMiniBoss.BarricadosModel2;
+import model.entity.enemy.AllEnemies;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -12,11 +12,11 @@ public class BarricadosController2 {
         if (!gameController.barricadosEnemies2.isEmpty()) {
             for (int i = 0; i < gameController.barricadosEnemies2.size(); i++) {
                 if (gameController.barricadosEnemies2.get(i).enemyTimer > 0) {
-                    gameController.barricadosEnemies2.get(i).dx = -((gameController.barricadosEnemies2.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.barricadosEnemies2.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.barricadosEnemies2.get(i).y - gameController.ball.y), 2))) * BarricadosModel2.enemySpeed;
+                    gameController.barricadosEnemies2.get(i).dx = -((gameController.barricadosEnemies2.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.barricadosEnemies2.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.barricadosEnemies2.get(i).y - gameController.ball.y), 2))) * AllEnemies.BarricadosModel2.enemySpeed;
                     if (gameController.ball.y < gameController.barricadosEnemies2.get(i).y) {
-                        gameController.barricadosEnemies2.get(i).dy = -Math.sqrt(Math.pow(BarricadosModel2.enemySpeed, 2) - Math.pow(gameController.barricadosEnemies2.get(i).dx, 2));
+                        gameController.barricadosEnemies2.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.BarricadosModel2.enemySpeed, 2) - Math.pow(gameController.barricadosEnemies2.get(i).dx, 2));
                     } else {
-                        gameController.barricadosEnemies2.get(i).dy = Math.sqrt(Math.pow(BarricadosModel2.enemySpeed, 2) - Math.pow(gameController.barricadosEnemies2.get(i).dx, 2));
+                        gameController.barricadosEnemies2.get(i).dy = Math.sqrt(Math.pow(AllEnemies.BarricadosModel2.enemySpeed, 2) - Math.pow(gameController.barricadosEnemies2.get(i).dx, 2));
                     }
                     if (gameController.ball.ballDismay) {
                         gameController.barricadosEnemies2.get(i).dx = -gameController.barricadosEnemies2.get(i).dx;
@@ -55,7 +55,7 @@ public class BarricadosController2 {
 
     }
 
-    public static void setTimerForBarricados2(BarricadosModel2 barricados2, GameController gameController) {
+    public static void setTimerForBarricados2(AllEnemies.BarricadosModel2 barricados2, GameController gameController) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override

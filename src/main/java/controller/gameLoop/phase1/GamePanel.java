@@ -1,5 +1,6 @@
 package controller.gameLoop.phase1;
 
+import controller.gameController.AutoAttack;
 import controller.gameController.GameController;
 import controller.gameController.WaveController;
 import controller.gameController.collisions.phase1.FrameCollision;

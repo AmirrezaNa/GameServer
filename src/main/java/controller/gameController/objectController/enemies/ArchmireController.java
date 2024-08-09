@@ -1,8 +1,7 @@
 package controller.gameController.objectController.enemies;
 
 import controller.gameController.GameController;
-import model.entity.enemy.normalAndMiniBoss.ArchmireModel;
-import model.entity.enemy.normalAndMiniBoss.ArchmirePoints;
+import model.entity.enemy.AllEnemies;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,11 +12,11 @@ public class ArchmireController {
         if (!gameController.archmireEnemies.isEmpty()) {
             for (int i = 0; i < gameController.archmireEnemies.size(); i++) {
                 if (gameController.archmireEnemies.get(i).enemyHealth > 0) {
-                    gameController.archmireEnemies.get(i).dx = -((gameController.archmireEnemies.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.archmireEnemies.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.archmireEnemies.get(i).y - gameController.ball.y), 2))) * ArchmireModel.enemySpeed;
+                    gameController.archmireEnemies.get(i).dx = -((gameController.archmireEnemies.get(i).x - gameController.ball.x) / Math.sqrt(Math.pow((gameController.archmireEnemies.get(i).x - gameController.ball.x), 2) + Math.pow((gameController.archmireEnemies.get(i).y - gameController.ball.y), 2))) * AllEnemies.ArchmireModel.enemySpeed;
                     if (gameController.ball.y < gameController.archmireEnemies.get(i).y) {
-                        gameController.archmireEnemies.get(i).dy = -Math.sqrt(Math.pow(ArchmireModel.enemySpeed, 2) - Math.pow(gameController.archmireEnemies.get(i).dx, 2));
+                        gameController.archmireEnemies.get(i).dy = -Math.sqrt(Math.pow(AllEnemies.ArchmireModel.enemySpeed, 2) - Math.pow(gameController.archmireEnemies.get(i).dx, 2));
                     } else {
-                        gameController.archmireEnemies.get(i).dy = Math.sqrt(Math.pow(ArchmireModel.enemySpeed, 2) - Math.pow(gameController.archmireEnemies.get(i).dx, 2));
+                        gameController.archmireEnemies.get(i).dy = Math.sqrt(Math.pow(AllEnemies.ArchmireModel.enemySpeed, 2) - Math.pow(gameController.archmireEnemies.get(i).dx, 2));
                     }
                 }
             }
@@ -52,13 +51,13 @@ public class ArchmireController {
 
     }
 
-    public static void setTrace(ArchmireModel archmire, GameController gameController) {
+    public static void setTrace(AllEnemies.ArchmireModel archmire, GameController gameController) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 if (archmire.enemyHealth > 0  && !gameController.pause) {
-                    ArchmirePoints archmirePoint = new ArchmirePoints(archmire.x + ((double) ArchmireModel.archmireSize / 2), archmire.y + ((double) ArchmireModel.archmireSize / 2));
+                    AllEnemies.ArchmirePoints archmirePoint = new AllEnemies.ArchmirePoints(archmire.x + ((double) AllEnemies.ArchmireModel.archmireSize / 2), archmire.y + ((double) AllEnemies.ArchmireModel.archmireSize / 2));
                     gameController.archmirePoints.add(0, archmirePoint);
                     setTimerForPoint(archmirePoint, gameController);
                 }
@@ -72,7 +71,7 @@ public class ArchmireController {
     }
 
 
-    public static void setTimerForPoint(ArchmirePoints archmirePoint, GameController gameController) {
+    public static void setTimerForPoint(AllEnemies.ArchmirePoints archmirePoint, GameController gameController) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override

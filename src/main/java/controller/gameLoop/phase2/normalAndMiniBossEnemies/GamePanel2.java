@@ -14,7 +14,7 @@ import model.ClientModel;
 import model.entity.BallAngle;
 import model.entity.BallDirection;
 import model.entity.BallModel;
-import model.entity.enemy.normalAndMiniBoss.*;
+
 
 import java.awt.*;
 

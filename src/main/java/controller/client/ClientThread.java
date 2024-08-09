@@ -1,6 +1,8 @@
 package controller.client;
 
 import controller.data.DataManager;
+import controller.gameController.listener.KeyInputListener;
+import controller.gameController.listener.MouseInputListener;
 import controller.gameLoop.phase1.GameFrame;
 import controller.gameLoop.phase1.GamePanel;
 import model.ClientModel;
@@ -42,6 +44,8 @@ public class ClientThread extends Thread {
             client.gameFrame.gamePanel = new GamePanel(client.gameController, client);
             client.gameFrame.thread = new Thread(client.gameFrame.gamePanel);
             client.gameFrame.thread.start();
+//            MouseInputListener.getMousePoint(client.gameController, client.inputs);
+//            KeyInputListener.getKeyPoint(client);
             DataTransfer.sendGameState(socket, client);
         } catch (IOException e) {
             throw new RuntimeException(e);

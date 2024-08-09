@@ -1,13 +1,12 @@
 package controller.gameController;
 
-import model.entity.enemy.normalAndMiniBoss.EnemyModel1;
-import model.entity.enemy.normalAndMiniBoss.EnemyModel2;
+import model.entity.enemy.AllEnemies;
 
 public class Rotation {
 
     public static void enemy1Rotation(GameController gameController) {
         if (!gameController.enemies1.isEmpty()) {
-            for (EnemyModel1 enemy : gameController.enemies1) {
+            for (AllEnemies.EnemyModel1 enemy : gameController.enemies1) {
                 if (enemy.dAngle >= 0) {
                     enemy.dAngle -= Math.PI/200;
                 }
@@ -31,7 +30,7 @@ public class Rotation {
 
     public static void enemy2Rotation(GameController gameController) {
         if (!gameController.enemies2.isEmpty()) {
-            for (EnemyModel2 enemy : gameController.enemies2) {
+            for (AllEnemies.EnemyModel2 enemy : gameController.enemies2) {
                 if (enemy.dAngle >= 0) {
                     enemy.dAngle -= Math.PI/200;
                 }
